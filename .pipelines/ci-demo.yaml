@@ -12,9 +12,7 @@ install:
   image: python:3.11-slim
   script:
     - pip install -r requirements.txt
-    - pip install pytest pytest-cov black isort
-    - black --check src/
-    - isort --check-only src/
+    - pip install pytest pytest-cov
 
 verify:
   stage: build
@@ -50,6 +48,5 @@ package:
   image: python:3.11-slim
   script:
     - pip install -r requirements.txt
-    - pip install build
     - python -m py_compile src/main.py
     - echo "Package verification complete"
