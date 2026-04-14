@@ -1,5 +1,5 @@
 pipeline:
-  name: ci-demo2
+  name: ci-demo2-before
   description: Pipeline demonstrating allow failures and artifact upload
 
 stages:
