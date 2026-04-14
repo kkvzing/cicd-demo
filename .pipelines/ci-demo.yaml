@@ -1,0 +1,33 @@
+pipeline:
+  name: ci-demo
+  description: Continuous integration pipeline for demo
+
+stages:
+  - build
+  - test
+
+install:
+  stage: build
+  image: python:3.11-slim
+  script:
+    - pip install -r requirements.txt
+    - pip install pytest pytest-cov
+
+unit-tests:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - pip install pytest
+    - pip install -r requirements.txt
+    - pytest tests/ -v
+
+coverage:
+  stage: test
+  image: python:3.11-slim
+  needs: [unit-tests]
+  script:
+    - pip install pytest pytest-cov
+    - pip install -r requirements.txt
+    - pytest tests/ --cov=src --cov-report=term-missing
+  artifacts:
+    - coverage.xml
