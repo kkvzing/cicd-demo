@@ -38,13 +38,13 @@ read -p "$ cicd status .pipelines/ci-demo2-after.yaml"
 cicd status .pipelines/ci-demo2-after.yaml
 
 read -p "$ cicd report --pipeline ci-demo2-after --run 2 --stage build"
-cicd report --pipeline ci-demo2-after --run 2 --stage build
+cicd report --pipeline ci-demo2-after --run 12 --stage build
 
 read -p "$ cat .pipelines/ci-demo2-after.yaml"
 cat .pipelines/ci-demo2-after.yaml
 
 read -p "$ cicd report --pipeline ci-demo2-after --run 2 --stage test --job coverage"
-cicd report --pipeline ci-demo2-after --run 2 --stage test --job coverage
+cicd report --pipeline ci-demo2-after --run 12 --stage test --job coverage
 
 read -p "$ cicd report --pipeline ci-demo2-after --run 2"
-cicd report --pipeline ci-demo2-after --run 2
+cicd report --pipeline ci-demo2-after --run 12
